@@ -1,0 +1,7 @@
+build/
+*.exe
+*.obj
+*.obj*.out
+.vscode/
+.DS_Store
+*.xlsx
