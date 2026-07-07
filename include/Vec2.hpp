@@ -1,25 +1,35 @@
 #pragma once
 #include <iostream>
 
-struct Vec2{
-    double x;
-    double y;
+class Vec2 {
+private:
+    double x_;
+    double y_;
+public:
+    Vec2()
+        : x_(0.0), y_(0.0) {}
 
+    Vec2(double xValue, double yValue)
+        : x_(xValue), y_(yValue) {}
+    
+    double x() const{
+        return x_;
+    }
 
-Vec2() : x(0.0),y(0.0) {}
+    double y() const{
+        return y_;
+    }
 
-Vec2(double xValue,double yValue) : x(xValue),y(yValue) {}
+    Vec2 operator+(const Vec2& other){
+        return Vec2(x_ + other.x_, y_ + other.y_);
+    }
 
-Vec2 operator+(const Vec2& other) const {
-    return Vec2(x+other.x, y+other.y);
-}
-
-Vec2 operator*(double scalar) const {
-    return Vec2(x*scalar, y*scalar);
-}
+    Vec2 operator*(double scalar){
+        return Vec2(x_*scalar, y_*scalar);
+    }
 };
 
 inline std::ostream& operator<<(std::ostream& out, const Vec2& v){
-    out << "(" << v.x << ", " << v.y << ")";
+    return out << "(" << v.x() << ", " << v.y() << ")";
     return out;
 }
