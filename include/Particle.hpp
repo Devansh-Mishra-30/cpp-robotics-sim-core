@@ -18,6 +18,10 @@ public:
         return velocity_;
     }
 
+    double speed() const{
+        return velocity_.length();
+    }
+
     void update(double dt){
         position_ = position_ + velocity_ * dt;
     }
