@@ -23,6 +23,6 @@ public:
     }
 
     void update(double dt){
-        position_ = position_ + velocity_ * dt;
+        position_ += velocity_ * dt;
     }
 };
