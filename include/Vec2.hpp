@@ -43,13 +43,13 @@ public:
 
     Vec2& operator+=(const Vec2& other) {
         x_+=other.x_;
-        y_+=other.x_;
+        y_+=other.y_;
         return *this;
     }
 
     Vec2& operator-=(const Vec2& other) {
         x_-=other.x_;
-        y_-=other.x_;
+        y_-=other.y_;
         return *this;
     }
 
