@@ -41,6 +41,36 @@ public:
         return Vec2(x_ - other.x_, y_ - other.y_);
     }
 
+    Vec2& operator+=(const Vec2& other) {
+        x_+=other.x_;
+        y_+=other.x_;
+        return *this;
+    }
+
+    Vec2& operator-=(const Vec2& other) {
+        x_-=other.x_;
+        y_-=other.x_;
+        return *this;
+    }
+
+    Vec2& operator*=(const double d) {
+        x_*=d;
+        y_*=d;
+        return *this;
+    }
+
+    Vec2 normalized() const {
+        double len = length();
+        if(len < 1e-9){
+            return Vec2{0.0,0.0};
+        }
+        return Vec2{x_/len, y_/len};
+    }
+
+    bool isNearZero(double epsilon = 1e-9) const {
+        return squaredLength() < epsilon * epsilon;
+    }
+
     Vec2 operator*(double scalar) const{
         return Vec2(x_*scalar, y_*scalar);
     }
