@@ -24,6 +24,30 @@ public:
         return particles_;
     }
 
+    Particle& particleAt(std::size_t index) {
+        return particles_.at(index);
+    }
+
+    const Particle& particleAt(std::size_t index) const {
+        return particles_.at(index);
+    }
+
+    Particle* tryGetParticle(std::size_t index) {
+        if (index >= particles_.size()) {
+            return nullptr;
+        }
+
+        return &particles_[index];
+    }
+
+    const Particle* tryGetParticle(std::size_t index) const {
+        if (index >= particles_.size()) {
+            return nullptr;
+        }
+
+        return &particles_[index];
+    }
+
     void update(double dt) {
         for(Particle& particle : particles_){
             particle.update(dt);

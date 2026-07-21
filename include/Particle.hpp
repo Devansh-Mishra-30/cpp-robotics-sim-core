@@ -25,4 +25,16 @@ public:
     void update(double dt){
         position_ += velocity_ * dt;
     }
+
+    void setVelocity(const Vec2& newVelocity) {
+        velocity_ = newVelocity;
+    }
+
+    void addVelocity(const Vec2& deltaVelocity) {
+        velocity_ += deltaVelocity;
+    }
+
+    void translate(const Vec2& displacement) {
+        position_ += displacement;
+    }
 };
