@@ -4,4 +4,6 @@ build/
 *.obj*.out
 .vscode/
 .DS_Store
-*.xlsx
+*.xlsx.vs/
+*.exe
+build/
