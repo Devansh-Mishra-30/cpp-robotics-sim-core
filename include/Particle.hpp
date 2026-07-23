@@ -1,5 +1,6 @@
 #pragma once
 #include "Vec2.hpp"
+#include <iostream>
 class Particle{
 private:
     Vec2 position_;
@@ -7,6 +8,22 @@ private:
 public:
     Particle() : position_(Vec2{0.0,0.0}), velocity_(Vec2{0.0,0.0}) {};
     Particle(const Vec2& startPosition, const Vec2& startVelocity) : position_(startPosition), velocity_(startVelocity) {}; 
+
+    Particle(const Particle& other) 
+        : position_(other.position_), velocity_(other.velocity_) {
+        std::cout << "[Particle copy constructor]\n";
+    }
+
+    Particle& operator=(const Particle& other){
+        std::cout << "[Particle copy assignment]\n";
+
+        if(this != &other){
+            position_ = other.position_;
+            velocity_ = other.velocity_;
+        }
+        return *this;
+    }
+
     const Vec2& position() const{
         return position_;
     }

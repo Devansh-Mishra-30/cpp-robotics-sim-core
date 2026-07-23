@@ -45,7 +45,40 @@ void applyVelocityKickIfPresent(Particle* particle, const Vec2& deltaVelocity){
     particle->addVelocity(deltaVelocity);
 }
 
+void runCopyLifetimeDemo() {
+    std::cout << "\n=== Day 7 Copy lifetime demo\n";
+
+    Particle original{Vec2{1.0,1.0}, Vec2{2.0,0.0}};
+
+    std::cout << "\nCreating copied from original:\n";
+    Particle copied = original;
+
+    std::cout << "\nCreating assigned, then assigning original into it:\n";
+    Particle assigned;
+    assigned = original;
+
+    std::cout << "\nPushing particles into vector:\n";
+    std::vector<Particle> demoParticles;
+
+    std::cout << "Initial capacity: " << demoParticles.capacity() << "\n";
+
+    demoParticles.push_back(original);
+    std::cout << "After push 1 | size: " << demoParticles.size()
+              << " | capacity: " << demoParticles.capacity() << "\n";
+
+    demoParticles.push_back(copied);
+    std::cout << "After push 2 | size: " << demoParticles.size()
+              << " | capacity: " << demoParticles.capacity() << "\n";
+
+    demoParticles.push_back(assigned);
+    std::cout << "After push 3 | size: " << demoParticles.size()
+              << " | capacity: " << demoParticles.capacity() << "\n";
+
+}
+
 int main() {
+    
+    runCopyLifetimeDemo();
     
     Simulator sim;
     sim.addParticle(makeParticle(Vec2{0.0,0.0},Vec2{0.0,0.0}));
